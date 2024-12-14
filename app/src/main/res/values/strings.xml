@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Animal Sound</string>
+    <string name="background_kid_sky">background kid sky</string>
+    <string name="logo_animal_sound">Logo Animal Sound</string>
+    <string name="logo_background">logo background</string>
+    <string name="icon_animal">icon animal</string>
+</resources>
