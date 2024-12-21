@@ -4,23 +4,22 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentTransaction;
 
 import java.lang.reflect.Constructor;
 
-import app.twentyhours.animalsound.databinding.ActivityMainBinding;
+import app.twentyhours.animalsound.R;
 import app.twentyhours.animalsound.java.view.OnMainCallback;
 import app.twentyhours.animalsound.java.view.fragment.BaseFragment;
 import app.twentyhours.animalsound.java.view.fragment.M000SplashFragment;
 
 public class MainActivity extends AppCompatActivity implements OnMainCallback {
-    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        DataBindingUtil.setContentView(this, R.layout.activity_main);
         initViews();
     }
 
@@ -41,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements OnMainCallback {
             if (addToBackStack) {
                 transaction.addToBackStack(null);
             }
-            transaction.replace(binding.main.getId(), fragment, tag);
+            transaction.replace(R.id.nav_host_fragment, fragment, tag);
             transaction.commit();
 
         } catch (Exception e) {
