@@ -1,4 +1,4 @@
-package app.twentyhours.animalsound.java.view.fragment;
+package app.twentyhours.animalsound.view.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewbinding.ViewBinding;
 
-import app.twentyhours.animalsound.java.view.OnMainCallback;
+import app.twentyhours.animalsound.view.activity.OnMainCallback;
 
 public abstract class BaseFragment<T extends ViewBinding> extends Fragment {
     protected Context context;

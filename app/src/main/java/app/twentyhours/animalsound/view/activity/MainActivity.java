@@ -1,4 +1,4 @@
-package app.twentyhours.animalsound.java.view.activity;
+package app.twentyhours.animalsound.view.activity;
 
 import android.os.Bundle;
 
@@ -10,9 +10,8 @@ import androidx.fragment.app.FragmentTransaction;
 import java.lang.reflect.Constructor;
 
 import app.twentyhours.animalsound.R;
-import app.twentyhours.animalsound.java.view.OnMainCallback;
-import app.twentyhours.animalsound.java.view.fragment.BaseFragment;
-import app.twentyhours.animalsound.java.view.fragment.M000SplashFragment;
+import app.twentyhours.animalsound.view.fragment.BaseFragment;
+import app.twentyhours.animalsound.view.fragment.M000SplashFragment;
 
 public class MainActivity extends AppCompatActivity implements OnMainCallback {
 

@@ -1,4 +1,4 @@
-package app.twentyhours.animalsound.java.model;
+package app.twentyhours.animalsound.model;
 
 import java.util.List;
 
@@ -19,6 +19,22 @@ public class Animal {
 
     public String getName() {
         return name;
+    }
+
+    public Animal getNext() {
+        int index = ANIMALS.indexOf(this);
+        if (index == ANIMALS.size() - 1) {
+            return ANIMALS.get(0);
+        }
+        return ANIMALS.get(index + 1);
+    }
+
+    public Animal getPrevious() {
+        int index = ANIMALS.indexOf(this);
+        if (index == 0) {
+            return ANIMALS.get(ANIMALS.size() - 1);
+        }
+        return ANIMALS.get(index - 1);
     }
 
     public static final List<Animal> ANIMALS = List.of(

@@ -1,4 +1,4 @@
-package app.twentyhours.animalsound.java.view.fragment;
+package app.twentyhours.animalsound.view.fragment;
 
 import android.os.Handler;
 import android.view.LayoutInflater;

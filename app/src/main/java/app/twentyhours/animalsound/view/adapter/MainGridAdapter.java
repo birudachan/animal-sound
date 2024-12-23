@@ -1,4 +1,4 @@
-package app.twentyhours.animalsound.java.view.adapter;
+package app.twentyhours.animalsound.view.adapter;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import app.twentyhours.animalsound.R;
-import app.twentyhours.animalsound.java.model.Animal;
-import app.twentyhours.animalsound.java.view.fragment.OnMainFragmentItemClickListener;
+import app.twentyhours.animalsound.model.Animal;
+import app.twentyhours.animalsound.view.fragment.OnMainFragmentItemClickListener;
 
 public class MainGridAdapter extends RecyclerView.Adapter<MainGridAdapter.MyViewHolder> {
     private static final String TAG = MainGridAdapter.class.getName();
