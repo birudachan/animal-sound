@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="detailViewModel"
             type="app.twentyhours.animalsound.viewmodel.M002DetailViewModel" />
@@ -27,33 +28,48 @@
             android:shadowDx="2"
             android:shadowDy="2"
             android:shadowRadius="2"
+            android:text="@{detailViewModel.animal.name}"
             android:textColor="@color/white"
             android:textSize="32sp"
-            android:text="@{detailViewModel.animal.name}"
             tools:text="Hippo" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_animal"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginHorizontal="20dp"
+            android:paddingHorizontal="20dp"
             android:layout_marginTop="20dp"
-            android:layout_weight="1"
-            app:cardBackgroundColor="@color/whiteAlpha"
-            app:cardCornerRadius="12dp"
-            app:contentPadding="20dp"
-            app:strokeColor="@color/white"
-            app:strokeWidth="2dp">
+            android:layout_weight="1">
 
-            <ImageView
-                android:id="@+id/iv_animal"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_animal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:contentDescription="@string/icon_animal"
-                android:elevation="6dp"
-                tools:src="@drawable/ic_hippo" />
-        </com.google.android.material.card.MaterialCardView>
+                app:cardBackgroundColor="@color/whiteAlpha"
+                app:contentPadding="20dp"
+                app:cardCornerRadius="12dp"
+                app:strokeColor="@color/white"
+                app:strokeWidth="2dp">
+
+                <ImageView
+                    android:id="@+id/iv_animal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/icon_animal"
+                    android:elevation="6dp"
+                    tools:src="@drawable/ic_hippo" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <ImageView
+                android:id="@+id/iv_speaker"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="end|bottom"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:contentDescription="@string/play_sound_button"
+                android:src="@drawable/ic_speaker" />
+        </FrameLayout>
 
         <LinearLayout
             android:id="@+id/nav_layout"

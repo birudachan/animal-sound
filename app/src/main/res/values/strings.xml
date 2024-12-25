@@ -5,4 +5,5 @@
     <string name="logo_background">logo background</string>
     <string name="icon_animal">icon animal</string>
     <string name="icon_freccia_destra">icon freccia destra</string>
+    <string name="play_sound_button">play sound button</string>
 </resources>
