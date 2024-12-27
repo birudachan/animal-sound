@@ -57,6 +57,7 @@
                     android:layout_gravity="center"
                     android:contentDescription="@string/icon_animal"
                     android:elevation="6dp"
+                    app:imageSrc="@{detailViewModel.animal.photoId}"
                     tools:src="@drawable/ic_hippo" />
             </com.google.android.material.card.MaterialCardView>
 

@@ -42,7 +42,6 @@ public class M002DetailFragment
 
     private void onChangeAnimal(Animal animal) {
         tts.speak(animal.getName(), TextToSpeech.QUEUE_FLUSH, null, null); // TODO: Ask Mr. Thanh why tts doesn't speak the first time enter this fragment
-        binding.ivAnimal.setImageResource(animal.getPhotoId()); // TODO: Ask Mr. Thanh if we can bind this to the xml file
     }
 
     @Override
