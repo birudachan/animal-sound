@@ -52,4 +52,8 @@ public class M002DetailViewModel extends ViewModel {
     public void playSound() {
         actionEvent.setValue(new Event<>(Action.PLAY));
     }
+
+    public void searchAnimal() {
+        actionEvent.setValue(new Event<>(Action.SEARCH));
+    }
 }

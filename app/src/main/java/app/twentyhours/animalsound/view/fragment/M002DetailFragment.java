@@ -46,6 +46,7 @@ public class M002DetailFragment
         viewModel.getActionEvent().observe(getViewLifecycleOwner(), this::onAction);
     }
 
+    @SuppressWarnings("ConstantConditions")  // Because animal won't be null
     private void onAction(Event<M002DetailViewModel.Action> actionEvent) {
         M002DetailViewModel.Action action = actionEvent.getContentIfNotHandled();
         if (action != null) {
@@ -54,7 +55,7 @@ public class M002DetailFragment
                     Util.playSound(context, viewModel.getAnimal().getValue().getSoundId());
                     break;
                 case SEARCH:
-                    viewModel.nextAnimal();
+                    Util.searchImage(context, viewModel.getAnimal().getValue().getName());
                     break;
             }
         }
@@ -68,7 +69,7 @@ public class M002DetailFragment
     }
 
     private void onChangeAnimal(Animal animal) {
-        Log.i(TAG, "onChangeAnimal: " + animal.getName());
+        Log.d(TAG, "onChangeAnimal: " + animal.getName());
         tts.speak(animal.getName(), TextToSpeech.QUEUE_FLUSH, null, null); // TODO: Ask Mr. Thanh why tts doesn't speak the first time enter this fragment
     }
 
