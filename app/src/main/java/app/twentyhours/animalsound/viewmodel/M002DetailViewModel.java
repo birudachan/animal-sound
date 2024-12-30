@@ -11,6 +11,11 @@ import app.twentyhours.animalsound.view.fragment.M001MainFragment;
 public class M002DetailViewModel extends ViewModel {
     private final MutableLiveData<Animal> animal = new MutableLiveData<>();
     private final MutableLiveData<Event<String>> navigateEvent = new MutableLiveData<>();
+    private final MutableLiveData<Event<Action>> actionEvent = new MutableLiveData<>();
+
+    public static enum Action {
+        PLAY, SEARCH
+    }
 
     public LiveData<Animal> getAnimal() {
         return animal;
@@ -18,6 +23,10 @@ public class M002DetailViewModel extends ViewModel {
 
     public LiveData<Event<String>> getNavigateEvent() {
         return navigateEvent;
+    }
+
+    public LiveData<Event<Action>> getActionEvent() {
+        return actionEvent;
     }
 
     public void setAnimal(Animal animal) {
@@ -38,5 +47,9 @@ public class M002DetailViewModel extends ViewModel {
 
     public void navigateToMainFragment() {
         navigateEvent.setValue(new Event<>(M001MainFragment.TAG));
+    }
+
+    public void playSound() {
+        actionEvent.setValue(new Event<>(Action.PLAY));
     }
 }

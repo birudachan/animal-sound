@@ -94,6 +94,7 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/bg_alpha_round_shape"
                 android:contentDescription="@string/play_sound_button"
+                android:onClick="@{() -> detailViewModel.playSound()}"
                 android:src="@drawable/ic_speaker" />
         </FrameLayout>
 

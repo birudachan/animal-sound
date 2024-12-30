@@ -6,10 +6,12 @@ import app.twentyhours.animalsound.R;
 
 public class Animal {
     private final int photoId;
+    private final int soundId;
     private final String name;
 
-    public Animal(int photoId, String name) {
+    public Animal(int photoId, int soundId, String name) {
         this.photoId = photoId;
+        this.soundId = soundId;
         this.name = name;
     }
 
@@ -19,6 +21,10 @@ public class Animal {
 
     public String getName() {
         return name;
+    }
+
+    public int getSoundId() {
+        return soundId;
     }
 
     public Animal getNext() {
@@ -38,14 +44,14 @@ public class Animal {
     }
 
     public static final List<Animal> ANIMALS = List.of(
-            new Animal(R.drawable.ic_elephant, "Elephant"),
-            new Animal(R.drawable.ic_zebra, "Zebra"),
-            new Animal(R.drawable.ic_lion, "Lion"),
-            new Animal(R.drawable.ic_hippo, "Hippo"),
-            new Animal(R.drawable.ic_camel, "Camel"),
-            new Animal(R.drawable.ic_rhino, "Rhino"),
-            new Animal(R.drawable.ic_tiger, "Tiger"),
-            new Animal(R.drawable.ic_crocodile, "Crocodile"),
-            new Animal(R.drawable.ic_dolphin, "Dolphin")
+            new Animal(R.drawable.ic_elephant, R.raw.elephant, "Elephant"),
+            new Animal(R.drawable.ic_zebra, R.raw.zebra, "Zebra"),
+            new Animal(R.drawable.ic_lion, R.raw.lion, "Lion"),
+            new Animal(R.drawable.ic_hippo, R.raw.hippo, "Hippo"),
+            new Animal(R.drawable.ic_camel, R.raw.camel, "Camel"),
+            new Animal(R.drawable.ic_rhino, R.raw.rhino, "Rhino"),
+            new Animal(R.drawable.ic_tiger, R.raw.tiger, "Tiger"),
+            new Animal(R.drawable.ic_crocodile, R.raw.crocodile, "Crocodile"),
+            new Animal(R.drawable.ic_dolphin, R.raw.dolphin, "Dolphin")
     );
 }
