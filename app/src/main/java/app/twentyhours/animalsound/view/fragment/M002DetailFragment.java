@@ -10,6 +10,7 @@ import java.util.Locale;
 
 import app.twentyhours.animalsound.databinding.FragmentM002DetailBinding;
 import app.twentyhours.animalsound.model.Animal;
+import app.twentyhours.animalsound.util.Event;
 import app.twentyhours.animalsound.viewmodel.M002DetailViewModel;
 
 public class M002DetailFragment
@@ -34,10 +35,19 @@ public class M002DetailFragment
 
         viewModel = new ViewModelProvider(this).get(M002DetailViewModel.class);
         viewModel.setAnimal((Animal) mData);
-        viewModel.getAnimal().observe(getViewLifecycleOwner(), this::onChangeAnimal);
 
         binding.setDetailViewModel(viewModel);
         binding.setLifecycleOwner(this);
+
+        viewModel.getAnimal().observe(getViewLifecycleOwner(), this::onChangeAnimal);
+        viewModel.getNavigateEvent().observe(getViewLifecycleOwner(), this::navigateTo);
+    }
+
+    private void navigateTo(Event<String> event) {
+        String destination = event.getContentIfNotHandled();
+        if (destination != null && destination.equals(M001MainFragment.TAG)) {
+            requireActivity().onBackPressed(); // TODO: This is deprecated, ask Mr. Thanh the modern way
+        }
     }
 
     private void onChangeAnimal(Animal animal) {
