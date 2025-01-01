@@ -1,18 +1,25 @@
 package app.twentyhours.animalsound.model;
 
 import java.util.List;
+import java.util.Map;
 
 import app.twentyhours.animalsound.R;
 
 public class Animal {
+    public enum AnimalType {
+        FARM, SAVANNA
+    }
+
     private final int photoId;
     private final int soundId;
     private final String name;
+    private final AnimalType type;
 
-    public Animal(int photoId, int soundId, String name) {
+    public Animal(int photoId, int soundId, String name, AnimalType type) {
         this.photoId = photoId;
         this.soundId = soundId;
         this.name = name;
+        this.type = type;
     }
 
     public int getPhotoId() {
@@ -27,31 +34,58 @@ public class Animal {
         return soundId;
     }
 
+    public AnimalType getType() {
+        return type;
+    }
+
     public Animal getNext() {
-        int index = ANIMALS.indexOf(this);
-        if (index == ANIMALS.size() - 1) {
-            return ANIMALS.get(0);
+        List<Animal> currentList = findCurrentList();
+        int index = currentList.indexOf(this);
+        if (index == currentList.size() - 1) {
+            return currentList.get(0);
         }
-        return ANIMALS.get(index + 1);
+        return currentList.get(index + 1);
     }
 
     public Animal getPrevious() {
-        int index = ANIMALS.indexOf(this);
+        List<Animal> currentList = findCurrentList();
+        int index = currentList.indexOf(this);
         if (index == 0) {
-            return ANIMALS.get(ANIMALS.size() - 1);
+            return currentList.get(currentList.size() - 1);
         }
-        return ANIMALS.get(index - 1);
+        return currentList.get(index - 1);
     }
 
-    public static final List<Animal> ANIMALS = List.of(
-            new Animal(R.drawable.ic_elephant, R.raw.elephant, "Elephant"),
-            new Animal(R.drawable.ic_zebra, R.raw.zebra, "Zebra"),
-            new Animal(R.drawable.ic_lion, R.raw.lion, "Lion"),
-            new Animal(R.drawable.ic_hippo, R.raw.hippo, "Hippo"),
-            new Animal(R.drawable.ic_camel, R.raw.camel, "Camel"),
-            new Animal(R.drawable.ic_rhino, R.raw.rhino, "Rhino"),
-            new Animal(R.drawable.ic_tiger, R.raw.tiger, "Tiger"),
-            new Animal(R.drawable.ic_crocodile, R.raw.crocodile, "Crocodile"),
-            new Animal(R.drawable.ic_dolphin, R.raw.dolphin, "Dolphin")
+    private List<Animal> findCurrentList() {
+        return ANIMALS_BY_TYPE.get(type);
+    }
+
+    public static final List<Animal> FARM_ANIMALS = List.of(
+            new Animal(R.drawable.ic_duck, R.raw.duck, "Duck", AnimalType.FARM),
+            new Animal(R.drawable.ic_dog, R.raw.dog, "Dog", AnimalType.FARM),
+            new Animal(R.drawable.ic_hen, R.raw.hen, "Hen", AnimalType.FARM),
+            new Animal(R.drawable.ic_cat, R.raw.cat, "Cat", AnimalType.FARM),
+            new Animal(R.drawable.ic_cow, R.raw.cow, "Cow", AnimalType.FARM),
+            new Animal(R.drawable.ic_horse, R.raw.horse, "Horse", AnimalType.FARM),
+            new Animal(R.drawable.ic_sheep, R.raw.sheep, "Sheep", AnimalType.FARM),
+            new Animal(R.drawable.ic_mouse, R.raw.mouse, "Mouse", AnimalType.FARM),
+            new Animal(R.drawable.ic_pig, R.raw.pig, "Sheep", AnimalType.FARM)
+    );
+
+    public static final List<Animal> SAVANNA_ANIMALS = List.of(
+            new Animal(R.drawable.ic_elephant, R.raw.elephant, "Elephant", AnimalType.SAVANNA),
+            new Animal(R.drawable.ic_zebra, R.raw.zebra, "Zebra", AnimalType.SAVANNA),
+            new Animal(R.drawable.ic_lion, R.raw.lion, "Lion", AnimalType.SAVANNA),
+            new Animal(R.drawable.ic_hippo, R.raw.hippo, "Hippo", AnimalType.SAVANNA),
+            new Animal(R.drawable.ic_camel, R.raw.camel, "Camel", AnimalType.SAVANNA),
+            new Animal(R.drawable.ic_rhino, R.raw.rhino, "Rhino", AnimalType.SAVANNA),
+            new Animal(R.drawable.ic_tiger, R.raw.tiger, "Tiger", AnimalType.SAVANNA),
+            new Animal(R.drawable.ic_crocodile, R.raw.crocodile, "Crocodile", AnimalType.SAVANNA),
+            new Animal(R.drawable.ic_dolphin, R.raw.dolphin, "Dolphin", AnimalType.SAVANNA)
+    );
+
+    public static final Map<AnimalType, List<Animal>> ANIMALS_BY_TYPE = Map.of(
+            AnimalType.FARM, FARM_ANIMALS,
+            AnimalType.SAVANNA, SAVANNA_ANIMALS
     );
 }

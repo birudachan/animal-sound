@@ -1,13 +1,10 @@
 package app.twentyhours.animalsound.view.fragment;
 
-import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.GridLayoutManager;
-
-import java.util.Locale;
 
 import app.twentyhours.animalsound.databinding.FragmentM001MainBinding;
 import app.twentyhours.animalsound.model.Animal;
@@ -26,7 +23,8 @@ public class M001MainFragment
 
     @Override
     protected void initViews() {
-        final MainGridAdapter adapter = new MainGridAdapter(Animal.ANIMALS);
+        final MainGridAdapter adapter =
+                new MainGridAdapter(Animal.ANIMALS_BY_TYPE.get(Animal.AnimalType.SAVANNA));
         adapter.setOnClickListener(this);
         binding.rvAnimals.setAdapter(adapter);
         binding.rvAnimals.setLayoutManager(new GridLayoutManager(context, 3));

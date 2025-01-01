@@ -13,7 +13,7 @@ public class M002DetailViewModel extends ViewModel {
     private final MutableLiveData<Event<String>> navigateEvent = new MutableLiveData<>();
     private final MutableLiveData<Event<Action>> actionEvent = new MutableLiveData<>();
 
-    public static enum Action {
+    public enum Action {
         PLAY, SEARCH
     }
 
