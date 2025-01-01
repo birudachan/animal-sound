@@ -39,7 +39,7 @@ public class Animal {
     }
 
     public Animal getNext() {
-        List<Animal> currentList = findCurrentList();
+        List<Animal> currentList = getAnimalsByType(type);
         int index = currentList.indexOf(this);
         if (index == currentList.size() - 1) {
             return currentList.get(0);
@@ -48,7 +48,7 @@ public class Animal {
     }
 
     public Animal getPrevious() {
-        List<Animal> currentList = findCurrentList();
+        List<Animal> currentList = getAnimalsByType(type);
         int index = currentList.indexOf(this);
         if (index == 0) {
             return currentList.get(currentList.size() - 1);
@@ -56,11 +56,15 @@ public class Animal {
         return currentList.get(index - 1);
     }
 
-    private List<Animal> findCurrentList() {
+    public static List<Animal> getAnimalsByType(AnimalType type) {
         return ANIMALS_BY_TYPE.get(type);
     }
 
-    public static final List<Animal> FARM_ANIMALS = List.of(
+    public static List<AnimalType> getAnimalTypes() {
+        return List.of(AnimalType.values());
+    }
+
+    private static final List<Animal> FARM_ANIMALS = List.of(
             new Animal(R.drawable.ic_duck, R.raw.duck, "Duck", AnimalType.FARM),
             new Animal(R.drawable.ic_dog, R.raw.dog, "Dog", AnimalType.FARM),
             new Animal(R.drawable.ic_hen, R.raw.hen, "Hen", AnimalType.FARM),
@@ -69,10 +73,10 @@ public class Animal {
             new Animal(R.drawable.ic_horse, R.raw.horse, "Horse", AnimalType.FARM),
             new Animal(R.drawable.ic_sheep, R.raw.sheep, "Sheep", AnimalType.FARM),
             new Animal(R.drawable.ic_mouse, R.raw.mouse, "Mouse", AnimalType.FARM),
-            new Animal(R.drawable.ic_pig, R.raw.pig, "Sheep", AnimalType.FARM)
+            new Animal(R.drawable.ic_pig, R.raw.pig, "Pig", AnimalType.FARM)
     );
 
-    public static final List<Animal> SAVANNA_ANIMALS = List.of(
+    private static final List<Animal> SAVANNA_ANIMALS = List.of(
             new Animal(R.drawable.ic_elephant, R.raw.elephant, "Elephant", AnimalType.SAVANNA),
             new Animal(R.drawable.ic_zebra, R.raw.zebra, "Zebra", AnimalType.SAVANNA),
             new Animal(R.drawable.ic_lion, R.raw.lion, "Lion", AnimalType.SAVANNA),
@@ -84,7 +88,7 @@ public class Animal {
             new Animal(R.drawable.ic_dolphin, R.raw.dolphin, "Dolphin", AnimalType.SAVANNA)
     );
 
-    public static final Map<AnimalType, List<Animal>> ANIMALS_BY_TYPE = Map.of(
+    private static final Map<AnimalType, List<Animal>> ANIMALS_BY_TYPE = Map.of(
             AnimalType.FARM, FARM_ANIMALS,
             AnimalType.SAVANNA, SAVANNA_ANIMALS
     );

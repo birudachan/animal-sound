@@ -15,8 +15,7 @@ import app.twentyhours.animalsound.util.Event;
 import app.twentyhours.animalsound.util.Util;
 import app.twentyhours.animalsound.viewmodel.M002DetailViewModel;
 
-public class M002DetailFragment
-        extends BaseFragment<FragmentM002DetailBinding> {
+public class M002DetailFragment extends BaseFragment<FragmentM002DetailBinding> {
 
     public static final String TAG = M002DetailFragment.class.getName();
     private M002DetailViewModel viewModel;

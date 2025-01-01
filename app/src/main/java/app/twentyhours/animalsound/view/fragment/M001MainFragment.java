@@ -1,20 +1,25 @@
 package app.twentyhours.animalsound.view.fragment;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import app.twentyhours.animalsound.databinding.FragmentM001MainBinding;
 import app.twentyhours.animalsound.model.Animal;
 import app.twentyhours.animalsound.view.adapter.MainGridAdapter;
+import app.twentyhours.animalsound.viewmodel.M001MainViewModel;
 
-public class M001MainFragment
-        extends BaseFragment<FragmentM001MainBinding>
+public class M001MainFragment extends BaseFragment<FragmentM001MainBinding>
         implements OnMainFragmentItemClickListener {
 
     public static final String TAG = M001MainFragment.class.getName();
+
+    private MainGridAdapter adapter;
+    private M001MainViewModel viewModel;
 
     @Override
     protected FragmentM001MainBinding getViewBinding(LayoutInflater inflater, ViewGroup container) {
@@ -23,11 +28,22 @@ public class M001MainFragment
 
     @Override
     protected void initViews() {
-        final MainGridAdapter adapter =
-                new MainGridAdapter(Animal.ANIMALS_BY_TYPE.get(Animal.AnimalType.SAVANNA));
+        viewModel = new ViewModelProvider(this).get(M001MainViewModel.class);
+        binding.setMainViewModel(viewModel);
+        binding.setLifecycleOwner(this);
+
+        adapter = new MainGridAdapter();
         adapter.setOnClickListener(this);
         binding.rvAnimals.setAdapter(adapter);
         binding.rvAnimals.setLayoutManager(new GridLayoutManager(context, 3));
+
+        viewModel.getAnimalType().observe(getViewLifecycleOwner(), this::onChangeAnimalType);
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private void onChangeAnimalType(Animal.AnimalType animalType) {
+        adapter.setAnimals(viewModel.getListAnimalsByType(animalType));
+        adapter.notifyDataSetChanged();
     }
 
     @Override

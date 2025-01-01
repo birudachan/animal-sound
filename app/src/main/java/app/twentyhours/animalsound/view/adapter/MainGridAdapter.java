@@ -19,10 +19,10 @@ import app.twentyhours.animalsound.view.fragment.OnMainFragmentItemClickListener
 public class MainGridAdapter extends RecyclerView.Adapter<MainGridAdapter.MyViewHolder> {
     private static final String TAG = MainGridAdapter.class.getName();
 
-    private final List<Animal> animals;
+    private List<Animal> animals;
     private OnMainFragmentItemClickListener listener;
 
-    public MainGridAdapter(List<Animal> animals) {
+    public void setAnimals(List<Animal> animals) {
         this.animals = animals;
     }
 

@@ -2,6 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="mainViewModel"
+            type="app.twentyhours.animalsound.viewmodel.M001MainViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -48,6 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="@{() -> mainViewModel.previousAnimalType()}"
                 android:contentDescription="@string/icon_freccia_destra"
                 android:src="@drawable/ic_freccia_sinistra" />
 
@@ -57,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:contentDescription="@string/icon_freccia_destra"
+                android:onClick="@{() -> mainViewModel.nextAnimalType()}"
                 android:src="@drawable/ic_freccia_destra" />
         </LinearLayout>
 
