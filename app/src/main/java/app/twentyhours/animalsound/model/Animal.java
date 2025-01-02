@@ -7,7 +7,7 @@ import app.twentyhours.animalsound.R;
 
 public class Animal {
     public enum AnimalType {
-        FARM, SAVANNA
+        SAVANNA, FOREST, FARM
     }
 
     private final int photoId;
@@ -88,8 +88,21 @@ public class Animal {
             new Animal(R.drawable.ic_dolphin, R.raw.dolphin, "Dolphin", AnimalType.SAVANNA)
     );
 
+    private static final List<Animal> FOREST_ANIMALS = List.of(
+            new Animal(R.drawable.ic_chick, R.raw.chick, "Chick", AnimalType.FOREST),
+            new Animal(R.drawable.ic_bird, R.raw.bird, "Bird", AnimalType.FOREST),
+            new Animal(R.drawable.ic_frog, R.raw.frog, "Frog", AnimalType.FOREST),
+            new Animal(R.drawable.ic_goose, R.raw.goose, "Goose", AnimalType.FOREST),
+            new Animal(R.drawable.ic_rabbit, R.raw.rabbit, "Rabbit", AnimalType.FOREST),
+            new Animal(R.drawable.ic_woodpecker, R.raw.woodpecker, "Woodpecker", AnimalType.FOREST),
+            new Animal(R.drawable.ic_bee, R.raw.bee, "Bee", AnimalType.FOREST),
+            new Animal(R.drawable.ic_peacock, R.raw.peacock, "Peacock", AnimalType.FOREST),
+            new Animal(R.drawable.ic_owl, R.raw.owl, "Owl", AnimalType.FOREST)
+    );
+
     private static final Map<AnimalType, List<Animal>> ANIMALS_BY_TYPE = Map.of(
             AnimalType.FARM, FARM_ANIMALS,
-            AnimalType.SAVANNA, SAVANNA_ANIMALS
+            AnimalType.SAVANNA, SAVANNA_ANIMALS,
+            AnimalType.FOREST, FOREST_ANIMALS
     );
 }

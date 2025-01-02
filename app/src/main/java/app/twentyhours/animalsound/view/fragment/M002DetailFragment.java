@@ -63,13 +63,13 @@ public class M002DetailFragment extends BaseFragment<FragmentM002DetailBinding> 
     private void navigateTo(Event<String> event) {
         String destination = event.getContentIfNotHandled();
         if (destination != null && destination.equals(M001MainFragment.TAG)) {
-            requireActivity().onBackPressed(); // TODO: This is deprecated, ask Mr. Thanh the modern way
+            requireActivity().onBackPressed(); // TODO: Replace this deprecated method
         }
     }
 
     private void onChangeAnimal(Animal animal) {
         Log.d(TAG, "onChangeAnimal: " + animal.getName());
-        tts.speak(animal.getName(), TextToSpeech.QUEUE_FLUSH, null, null); // TODO: Ask Mr. Thanh why tts doesn't speak the first time enter this fragment
+        tts.speak(animal.getName(), TextToSpeech.QUEUE_FLUSH, null, null); // TODO: Check why it doesn't speak the first time enter this fragment
     }
 
     @Override
