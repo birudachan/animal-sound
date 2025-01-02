@@ -5,11 +5,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import androidx.core.content.res.ResourcesCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import app.twentyhours.animalsound.databinding.FragmentM001MainBinding;
 import app.twentyhours.animalsound.model.Animal;
+import app.twentyhours.animalsound.model.AnimalType;
+import app.twentyhours.animalsound.model.Scene;
 import app.twentyhours.animalsound.view.adapter.MainGridAdapter;
 import app.twentyhours.animalsound.viewmodel.M001MainViewModel;
 
@@ -37,12 +40,12 @@ public class M001MainFragment extends BaseFragment<FragmentM001MainBinding>
         binding.rvAnimals.setAdapter(adapter);
         binding.rvAnimals.setLayoutManager(new GridLayoutManager(context, 3));
 
-        viewModel.getAnimalType().observe(getViewLifecycleOwner(), this::onChangeAnimalType);
+        viewModel.getScene().observe(getViewLifecycleOwner(), this::onChangeScene);
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private void onChangeAnimalType(Animal.AnimalType animalType) {
-        adapter.setAnimals(viewModel.getListAnimalsByType(animalType));
+    private void onChangeScene(Scene scene) {
+        adapter.setAnimals(scene.getAnimals());
         adapter.notifyDataSetChanged();
     }
 

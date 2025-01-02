@@ -6,10 +6,6 @@ import java.util.Map;
 import app.twentyhours.animalsound.R;
 
 public class Animal {
-    public enum AnimalType {
-        SAVANNA, FOREST, FARM
-    }
-
     private final int photoId;
     private final int soundId;
     private final String name;
@@ -60,9 +56,25 @@ public class Animal {
         return ANIMALS_BY_TYPE.get(type);
     }
 
+    public static Integer getBackgroundByType(AnimalType type) {
+        return BACKGROUND_BY_TYPE.get(type);
+    }
+
     public static List<AnimalType> getAnimalTypes() {
         return List.of(AnimalType.values());
     }
+
+    private static final List<Animal> SAVANNAH_ANIMALS = List.of(
+            new Animal(R.drawable.ic_elephant, R.raw.elephant, "Elephant", AnimalType.SAVANNAH),
+            new Animal(R.drawable.ic_zebra, R.raw.zebra, "Zebra", AnimalType.SAVANNAH),
+            new Animal(R.drawable.ic_lion, R.raw.lion, "Lion", AnimalType.SAVANNAH),
+            new Animal(R.drawable.ic_hippo, R.raw.hippo, "Hippo", AnimalType.SAVANNAH),
+            new Animal(R.drawable.ic_camel, R.raw.camel, "Camel", AnimalType.SAVANNAH),
+            new Animal(R.drawable.ic_rhino, R.raw.rhino, "Rhino", AnimalType.SAVANNAH),
+            new Animal(R.drawable.ic_tiger, R.raw.tiger, "Tiger", AnimalType.SAVANNAH),
+            new Animal(R.drawable.ic_crocodile, R.raw.crocodile, "Crocodile", AnimalType.SAVANNAH),
+            new Animal(R.drawable.ic_dolphin, R.raw.dolphin, "Dolphin", AnimalType.SAVANNAH)
+    );
 
     private static final List<Animal> FARM_ANIMALS = List.of(
             new Animal(R.drawable.ic_duck, R.raw.duck, "Duck", AnimalType.FARM),
@@ -76,19 +88,7 @@ public class Animal {
             new Animal(R.drawable.ic_pig, R.raw.pig, "Pig", AnimalType.FARM)
     );
 
-    private static final List<Animal> SAVANNA_ANIMALS = List.of(
-            new Animal(R.drawable.ic_elephant, R.raw.elephant, "Elephant", AnimalType.SAVANNA),
-            new Animal(R.drawable.ic_zebra, R.raw.zebra, "Zebra", AnimalType.SAVANNA),
-            new Animal(R.drawable.ic_lion, R.raw.lion, "Lion", AnimalType.SAVANNA),
-            new Animal(R.drawable.ic_hippo, R.raw.hippo, "Hippo", AnimalType.SAVANNA),
-            new Animal(R.drawable.ic_camel, R.raw.camel, "Camel", AnimalType.SAVANNA),
-            new Animal(R.drawable.ic_rhino, R.raw.rhino, "Rhino", AnimalType.SAVANNA),
-            new Animal(R.drawable.ic_tiger, R.raw.tiger, "Tiger", AnimalType.SAVANNA),
-            new Animal(R.drawable.ic_crocodile, R.raw.crocodile, "Crocodile", AnimalType.SAVANNA),
-            new Animal(R.drawable.ic_dolphin, R.raw.dolphin, "Dolphin", AnimalType.SAVANNA)
-    );
-
-    private static final List<Animal> FOREST_ANIMALS = List.of(
+    private static final List<Animal> FARM2_ANIMALS = List.of(
             new Animal(R.drawable.ic_chick, R.raw.chick, "Chick", AnimalType.FOREST),
             new Animal(R.drawable.ic_bird, R.raw.bird, "Bird", AnimalType.FOREST),
             new Animal(R.drawable.ic_frog, R.raw.frog, "Frog", AnimalType.FOREST),
@@ -100,9 +100,29 @@ public class Animal {
             new Animal(R.drawable.ic_owl, R.raw.owl, "Owl", AnimalType.FOREST)
     );
 
+    private static final List<Animal> FOREST_ANIMALS = List.of(
+            new Animal(R.drawable.ic_squirrel, R.raw.squirrel, "Squirrel", AnimalType.FOREST),
+            new Animal(R.drawable.ic_gorilla, R.raw.gorilla, "Gorilla", AnimalType.FOREST),
+            new Animal(R.drawable.ic_koala, R.raw.koala, "Koala", AnimalType.FOREST),
+            new Animal(R.drawable.ic_snake, R.raw.snake, "Snake", AnimalType.FOREST),
+            new Animal(R.drawable.ic_bear, R.raw.bear, "Bear", AnimalType.FOREST),
+            new Animal(R.drawable.ic_elk, R.raw.elk, "Elk", AnimalType.FOREST),
+            new Animal(R.drawable.ic_monkey, R.raw.monkey, "Monkey", AnimalType.FOREST),
+            new Animal(R.drawable.ic_raccoon, R.raw.raccoon, "Raccoon", AnimalType.FOREST),
+            new Animal(R.drawable.ic_panda, R.raw.panda, "Panda", AnimalType.FOREST)
+    );
+
     private static final Map<AnimalType, List<Animal>> ANIMALS_BY_TYPE = Map.of(
+            AnimalType.SAVANNAH, SAVANNAH_ANIMALS,
             AnimalType.FARM, FARM_ANIMALS,
-            AnimalType.SAVANNA, SAVANNA_ANIMALS,
+            AnimalType.FARM2, FARM2_ANIMALS,
             AnimalType.FOREST, FOREST_ANIMALS
+    );
+
+    private static final Map<AnimalType, Integer> BACKGROUND_BY_TYPE = Map.of(
+            AnimalType.SAVANNAH, R.drawable.bg_savanna,
+            AnimalType.FARM, R.drawable.bg_farm,
+            AnimalType.FARM2, R.drawable.bg_farm_2,
+            AnimalType.FOREST, R.drawable.bg_forest
     );
 }
