@@ -5,13 +5,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import androidx.core.content.res.ResourcesCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import app.twentyhours.animalsound.databinding.FragmentM001MainBinding;
 import app.twentyhours.animalsound.model.Animal;
-import app.twentyhours.animalsound.model.AnimalType;
 import app.twentyhours.animalsound.model.Scene;
 import app.twentyhours.animalsound.view.adapter.MainGridAdapter;
 import app.twentyhours.animalsound.viewmodel.M001MainViewModel;
